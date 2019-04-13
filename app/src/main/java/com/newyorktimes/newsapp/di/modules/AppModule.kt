@@ -1,7 +1,7 @@
 package com.newyorktimes.newsapp.di.modules
 
 import com.newyorktimes.newsapp.data.remote.Api
-import com.newyorktimes.newsapp.repository.UserRepository
+import com.newyorktimes.newsapp.repository.NewsRepository
 import com.newyorktimes.newsapp.schedulers.SchedulerContract
 import com.newyorktimes.newsapp.schedulers.SchedulerProvider
 import dagger.Module
@@ -26,8 +26,8 @@ class AppModule {
 
     @Provides
     @Singleton
-    fun provideUserkRepository(api: Api, scheduler: SchedulerContract): UserRepository {
-        return UserRepository(api, scheduler)
+    fun provideUserkRepository(api: Api, scheduler: SchedulerContract): NewsRepository {
+        return NewsRepository(api, scheduler)
     }
 
     @Provides

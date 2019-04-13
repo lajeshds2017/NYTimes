@@ -1,13 +1,11 @@
 package com.newyorktimes.newsapp.view.fragment.news
 
-import android.arch.lifecycle.MutableLiveData
-import com.newyorktimes.newsapp.common.JsonKeyConstants
+import com.newyorktimes.newsapp.data.remote.model.NewsListResponse
 import com.newyorktimes.newsapp.data.remote.response.ApiResponse
 import com.newyorktimes.newsapp.data.remote.response.ResponseListener
 import com.newyorktimes.newsapp.model.User
-import com.newyorktimes.newsapp.repository.UserRepository
+import com.newyorktimes.newsapp.repository.NewsRepository
 import com.newyorktimes.newsapp.viewmodel.BaseViewModel
-import com.google.gson.JsonObject
 import javax.inject.Inject
 
 /****
@@ -16,39 +14,28 @@ import javax.inject.Inject
  * Created on: 11/4/19
  * Modified on: 11/4/19
  *****/
-class NewsListViewModel @Inject constructor(private val userRepository: UserRepository) : BaseViewModel<User>(){
+class NewsListViewModel @Inject constructor(private val newsRepository: NewsRepository) : BaseViewModel<User>(){
 
-    val userName =  MutableLiveData<String>()
-    val password = MutableLiveData<String>()
 
     /**
      * Service call that performs the user login
      */
-    fun doLogin(){
-        userRepository.login("", constructBodyParamsForLogin(), object :ResponseListener<User>{
+    fun loadNews(){
+        newsRepository.getNews(1, object :ResponseListener<NewsListResponse>{
             override fun onStart() {
-                loadingStatus.value = true
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
             override fun onFinish() {
-                loadingStatus.value = true
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-            override fun onResponse(result: ApiResponse<User>) {
-                response.value = result
+            override fun onResponse(result: ApiResponse<NewsListResponse>) {
+                TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
             }
 
-        } )
+        })
     }
 
-    /**
-     * This method return the JSON body for Login service call
-     */
-    fun constructBodyParamsForLogin() : JsonObject{
-        val jsonObject = JsonObject();
-        jsonObject.addProperty(JsonKeyConstants.JSON_KEY_USERNAME, userName.value)
-        jsonObject.addProperty(JsonKeyConstants.JSON_KEY_PASSWORD, password.value)
-        return jsonObject
-    }
 
 }

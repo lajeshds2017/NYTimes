@@ -1,11 +1,10 @@
 package com.newyorktimes.newsapp.data.remote
 
-import com.newyorktimes.newsapp.model.User
-import com.google.gson.JsonObject
+import com.newyorktimes.newsapp.data.remote.model.NewsListResponse
 import io.reactivex.Observable
-import retrofit2.http.Body
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.GET
+import retrofit2.http.Path
+
 
 /****
  * Keep all the REST Apis here
@@ -14,7 +13,8 @@ import retrofit2.http.POST
  * Modified on: 11/4/19
  *****/
 interface Api {
-    @POST("user/login")
-    fun login(@Header("Authorization") authorization: String, @Body params: JsonObject): Observable<User>
+
+    @GET("svc/mostpopular/v2/mostviewed/all-sections/{index}.json")
+    fun getPopularNews(@Path("index") index: Int): Observable<NewsListResponse>
 
 }
