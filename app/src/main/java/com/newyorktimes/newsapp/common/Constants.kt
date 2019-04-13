@@ -7,4 +7,5 @@ package com.newyorktimes.newsapp.common
  * Modified on: 11/4/19
  *****/
 object Constants {
+    const val QUERY_PARAM__APIKEY = "api-key"
 }

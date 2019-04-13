@@ -1,6 +1,7 @@
 package com.newyorktimes.newsapp.di.modules
 
 import com.newyorktimes.newsapp.common.Configuration
+import com.newyorktimes.newsapp.data.remote.RequestInterceptor
 import dagger.Module
 import dagger.Provides
 import okhttp3.JavaNetCookieJar
@@ -32,6 +33,7 @@ class NetworkModule {
         val cookieHandler = CookieManager()
         return OkHttpClient.Builder()
             .addInterceptor(logging)
+            .addInterceptor(RequestInterceptor())
             .cookieJar(JavaNetCookieJar(cookieHandler))
             .connectTimeout(CONNECTION_TIMEOUT, TimeUnit.MILLISECONDS)
             .readTimeout(READ_TIMEOUT, TimeUnit.MILLISECONDS)

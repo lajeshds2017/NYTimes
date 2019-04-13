@@ -1,5 +1,6 @@
 package com.newyorktimes.newsapp.view.fragment.base
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import android.arch.lifecycle.ViewModelProviders
@@ -9,9 +10,12 @@ import android.databinding.ViewDataBinding
 import android.os.Bundle
 import android.support.annotation.LayoutRes
 import android.support.v4.app.Fragment
+import android.support.v4.app.FragmentActivity
+import android.support.v7.app.AlertDialog
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.newyorktimes.newsapp.R
 import com.newyorktimes.newsapp.di.Injectable
 import com.newyorktimes.newsapp.view.activity.base.BaseActivity
 import com.newyorktimes.newsapp.view.listeners.BackButtonHandlerListener
@@ -35,7 +39,6 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), In
 
     protected lateinit var dataBinding: D
 
-    //protected lateinit var sharedViewModel: SharedViewModel
 
     private var backButtonHandler: BackButtonHandlerListener? = null
 
@@ -52,8 +55,6 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), In
         AndroidSupportInjection.inject(this)
         super.onCreate(savedInstanceState)
         viewModel = ViewModelProviders.of(this, viewModelFactory).get(getViewModel())
-
-       // sharedViewModel = ViewModelProviders.of(activity!!).get(SharedViewModel::class.java)
 
     }
 
@@ -72,12 +73,8 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), In
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         setTitle()
-
-        //setSharedViewModel()
-
-        observeResponse()
-
-        observeLoadingStatus()
+        observeNavigationEvent()
+        observeServiceError()
     }
 
 
@@ -101,13 +98,6 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), In
     open fun hasHeader(): Boolean {
         return true
     }
-
-    /**
-     * Method which sets the sharedview to baseviewmodel
-     */
-//    private fun setSharedViewModel() {
-//        (viewModel as BaseViewModel<*>).sharedViewModel = sharedViewModel
-//    }
 
     /**
      * Method to override the backpress behaviour on indivitual fragment
@@ -137,13 +127,33 @@ abstract class BaseFragment<V : ViewModel, D : ViewDataBinding> : Fragment(), In
         backButtonHandler = null
     }
 
-    open fun observeResponse() {
+    open fun observeNavigationEvent() {
         // Implementation goes on the child fragments
     }
 
-
-    open fun observeLoadingStatus() {
-        // Implementation goes on the child fragments
+    open fun observeServiceError(){
+       // Implementation goes on child fragments
     }
+
+    fun showErrorDialog(message : String){
+
+        val act : FragmentActivity =  activity?.let { it } ?: return
+        val builder = AlertDialog.Builder(act)
+        builder.setTitle(getString(R.string.error))
+        builder.setMessage(message)
+
+        // Set a positive button and its click listener on alert dialog
+        builder.setPositiveButton(getString(R.string.ok)){dialog, which ->
+            dialog.dismiss()
+        }
+
+        // Finally, make the alert dialog using builder
+        val dialog: AlertDialog = builder.create()
+
+        // Display the alert dialog on app interface
+        dialog.show()
+    }
+
+
 
 }

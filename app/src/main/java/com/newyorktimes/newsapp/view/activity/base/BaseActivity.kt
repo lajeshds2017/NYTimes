@@ -66,17 +66,11 @@ abstract class BaseActivity<V : ViewModel, D : ViewDataBinding> : AppCompatActiv
      * Method which listens to back button press in toolbar
      */
     private fun observeBackPressAction() {
-        (viewModel as BaseViewModel<*>).backPressAction.observe(this, Observer {
+        (viewModel as BaseViewModel).backPressAction.observe(this, Observer {
             onBackPressed()
         })
     }
 
-    /**
-     * Method which sets the title in the header
-     */
-    fun setTitle(title: String) {
-        (viewModel as BaseViewModel<*>).setTitle(title)
-    }
 
     /**
      * Methods which handles the hardware back button / navigation back view

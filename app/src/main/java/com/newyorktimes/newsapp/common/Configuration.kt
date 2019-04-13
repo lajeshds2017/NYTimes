@@ -21,15 +21,17 @@ object Configuration {
     @DeploymentType
     private val defaultEnvironment = DEV
 
+    const val API_KEY = "5Z4MVs7Y1WNAYyA79RE9tpR6s3WQjLie"
+
 
     // HOST Urls
-    private const val URL_SIT = "http://api.nytimes.com/" //Put the SIT url here
+    private const val URL_SIT = "" //Put the SIT url here
 
     private const val URL_DEV = "http://api.nytimes.com/" // Put the development url here
 
-    private const val URL_PROD = "http://api.nytimes.com/" // Put the production url here
+    private const val URL_PROD = "" // Put the production url here
 
-    private const val URL_UAT = "http://api.nytimes.com/" // Put the UAT url here
+    private const val URL_UAT = "" // Put the UAT url here
 
     val baseURL: String
         get() {

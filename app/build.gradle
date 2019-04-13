@@ -42,8 +42,8 @@ dependencies {
     final ARCHITECTURE_COMPONENT_VERSION = '1.1.1'
     final RETROFIT_VERSION = '2.3.0'
     final DAGGER_VERSION = '2.15'
-    final LOTTIE_ANDROID_VERSION = '2.5.4'
-    final ZXING_SCANNER_VERSION = '3.3.3'
+    final BINDING_COLLECTION_ADAPTER = '2.2.0'
+    final GLIDE_VERSION = '4.9.0'
 
     implementation fileTree(include: ['*.aar'], dir: 'libs')
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -64,6 +64,7 @@ dependencies {
     implementation 'com.squareup.retrofit2:converter-gson:2.4.0'
     implementation 'com.squareup.okhttp3:logging-interceptor:3.10.0'
     implementation 'com.squareup.okhttp3:okhttp-urlconnection:3.6.0'
+    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
 
     // RxJava / RxAndroid / RxKotlin
     implementation 'io.reactivex.rxjava2:rxjava:2.1.10'
@@ -80,18 +81,24 @@ dependencies {
     // Timber for Logging
     implementation 'com.jakewharton.timber:timber:4.7.1'
 
-    //Animation view
-    implementation "com.airbnb.android:lottie:$LOTTIE_ANDROID_VERSION"
-
-    //Scanning
-    implementation 'com.journeyapps:zxing-android-embedded:3.6.0@aar'
-    implementation "com.google.zxing:core:$ZXING_SCANNER_VERSION"
 
     // Unit tests - espresso
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
+    // Binding Collection Adapter
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter:$BINDING_COLLECTION_ADAPTER"
+    implementation "me.tatarka.bindingcollectionadapter2:bindingcollectionadapter-recyclerview:$BINDING_COLLECTION_ADAPTER"
 
-    implementation 'com.squareup.okhttp3:okhttp:3.10.0'
+    // Glide
+    implementation "com.github.bumptech.glide:glide:$GLIDE_VERSION"
+    annotationProcessor "com.github.bumptech.glide:compiler:$GLIDE_VERSION"
+
+    // Circular Imageview
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
+
+    // Custom chrome tabs
+    implementation "com.android.support:customtabs:$SUPPORT_LIBRARY_VERSION"
+
 }

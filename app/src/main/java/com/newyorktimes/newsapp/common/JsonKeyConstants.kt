@@ -7,7 +7,6 @@ package com.newyorktimes.newsapp.common
  * Modified on: 11/4/19
  *****/
 object JsonKeyConstants{
-    const val JSON_KEY_USERNAME = "userName"
-    const val JSON_KEY_PASSWORD = "password"
+    // Keep Json Keyconstants here
 
 }

@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-        xmlns:app="http://schemas.android.com/apk/res-auto">
+        xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:bind="http://schemas.android.com/tools">
 
     <data>
 
-        <variable name="viewModel"
-                  type="com.newyorktimes.newsapp.view.fragment.news.NewsListViewModel"/>
+        <variable name="itemViewModel"
+                  type="com.newyorktimes.newsapp.view.fragment.news.NewsItemViewModel"/>
+
+        <variable name="itemClickListener" type="com.newyorktimes.newsapp.listeners.OnItemClickListener"/>
 
     </data>
 
@@ -15,7 +17,8 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             app:cardCornerRadius="4dp"
-            app:cardElevation="1dp">
+            app:cardElevation="1dp"
+            android:onClick="@{() -> itemClickListener.onItemClick(itemViewModel)}">
 
         <LinearLayout
                 android:layout_width="match_parent"
@@ -27,20 +30,21 @@
                 android:paddingEnd="20dp"
                 android:paddingTop="10dp">
 
-            <ImageView
+            <de.hdodenhof.circleimageview.CircleImageView
                     android:id="@+id/imageView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_gravity="top"
+                    android:layout_gravity="center"
                     android:layout_margin="10dp"
                     android:contentDescription="@string/article_icon"
                     android:scaleType="centerCrop"
-                     />
+                    bind:imageUrl="@{itemViewModel.newsThumbnailUrl}"/>
 
             <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
+                    android:layout_margin="10dp"
                     android:orientation="vertical">
 
                 <TextView
@@ -50,7 +54,8 @@
                         android:textColor="@android:color/black"
                         android:textSize="16sp"
                         android:textStyle="bold"
-                        android:typeface="sans" />
+                        android:typeface="sans"
+                        android:text="@{itemViewModel.newsTitle}"/>
 
                 <TextView
                         android:id="@+id/authorsTxt"
@@ -60,7 +65,8 @@
                         android:textColor="@android:color/black"
                         android:textSize="12sp"
                         android:textStyle="normal"
-                        android:typeface="sans" />
+                        android:typeface="sans"
+                        android:text="@{itemViewModel.newsAuthors}"/>
 
                 <TextView
                         android:id="@+id/timeTxt"
@@ -71,7 +77,8 @@
                         android:textColor="@android:color/darker_gray"
                         android:textSize="12sp"
                         android:textStyle="normal"
-                        android:typeface="sans" />
+                        android:typeface="sans"
+                        android:text="@{itemViewModel.publishedDate}"/>
             </LinearLayout>
         </LinearLayout>
     </android.support.v7.widget.CardView>
