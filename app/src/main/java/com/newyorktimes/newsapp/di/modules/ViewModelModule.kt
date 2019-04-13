@@ -4,7 +4,7 @@ import android.arch.lifecycle.ViewModel
 import android.arch.lifecycle.ViewModelProvider
 import com.newyorktimes.newsapp.architecture.ViewModelFactory
 import com.newyorktimes.newsapp.di.key.ViewModelKey
-import com.newyorktimes.newsapp.view.fragment.login.LoginViewModel
+import com.newyorktimes.newsapp.view.fragment.news.NewsListViewModel
 import dagger.Binds
 import dagger.Module
 import dagger.multibindings.IntoMap
@@ -20,8 +20,8 @@ interface ViewModelModule {
 
     @Binds
     @IntoMap
-    @ViewModelKey(LoginViewModel::class)
-    fun bindLoginViewModel(loginViewModel: LoginViewModel): ViewModel
+    @ViewModelKey(NewsListViewModel::class)
+    fun bindNewsListViewModel(newsListViewModel: NewsListViewModel): ViewModel
 
     @Binds
     fun bindViewModelFactory(viewModelFactory: ViewModelFactory): ViewModelProvider.Factory

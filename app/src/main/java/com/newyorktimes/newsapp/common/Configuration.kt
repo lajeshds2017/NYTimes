@@ -23,13 +23,13 @@ object Configuration {
 
 
     // HOST Urls
-    private const val URL_SIT = "" //Put the SIT url here
+    private const val URL_SIT = "http://api.nytimes.com/" //Put the SIT url here
 
-    private const val URL_DEV = "" // Put the development url here
+    private const val URL_DEV = "http://api.nytimes.com/" // Put the development url here
 
-    private const val URL_PROD = "" // Put the production url here
+    private const val URL_PROD = "http://api.nytimes.com/" // Put the production url here
 
-    private const val URL_UAT = "" // Put the UAT url here
+    private const val URL_UAT = "http://api.nytimes.com/" // Put the UAT url here
 
     val baseURL: String
         get() {

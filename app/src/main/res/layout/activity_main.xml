@@ -6,7 +6,7 @@
 
         <variable
                 name="viewModel"
-                type="com.newyorktimes.newsapp.view.fragment.login.LoginViewModel"/>
+                type="com.newyorktimes.newsapp.view.fragment.news.NewsListViewModel"/>
     </data>
 
     <LinearLayout

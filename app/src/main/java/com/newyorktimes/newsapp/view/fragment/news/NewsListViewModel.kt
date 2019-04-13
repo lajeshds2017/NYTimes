@@ -1,4 +1,4 @@
-package com.newyorktimes.newsapp.view.fragment.login
+package com.newyorktimes.newsapp.view.fragment.news
 
 import android.arch.lifecycle.MutableLiveData
 import com.newyorktimes.newsapp.common.JsonKeyConstants
@@ -16,7 +16,7 @@ import javax.inject.Inject
  * Created on: 11/4/19
  * Modified on: 11/4/19
  *****/
-class LoginViewModel @Inject constructor(private val userRepository: UserRepository) : BaseViewModel<User>(){
+class NewsListViewModel @Inject constructor(private val userRepository: UserRepository) : BaseViewModel<User>(){
 
     val userName =  MutableLiveData<String>()
     val password = MutableLiveData<String>()

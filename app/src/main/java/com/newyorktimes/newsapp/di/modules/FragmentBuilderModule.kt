@@ -1,6 +1,6 @@
 package com.newyorktimes.newsapp.di.modules
 
-import com.newyorktimes.newsapp.view.fragment.login.LoginFragment
+import com.newyorktimes.newsapp.view.fragment.news.NewsListFragment
 import dagger.Module
 import dagger.android.ContributesAndroidInjector
 
@@ -14,5 +14,5 @@ import dagger.android.ContributesAndroidInjector
 @Module
 abstract class FragmentBuilderModule {
     @ContributesAndroidInjector
-    abstract fun contributeLoginFragment(): LoginFragment
+    abstract fun contributeNewsListFragment(): NewsListFragment
 }
