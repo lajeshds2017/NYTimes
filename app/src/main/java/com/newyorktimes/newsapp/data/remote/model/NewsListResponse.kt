@@ -8,9 +8,4 @@ import com.google.gson.annotations.SerializedName
  * Created on: 4/13/19
  * Modified on: 4/13/19
  *****/
-data class NewsListResponse(@SerializedName("results") var popularNewsList : ArrayList<NewsItem>?) {
-    init {
-        popularNewsList = ArrayList()
-    }
-
-}
+data class NewsListResponse(@SerializedName("results") var popularNewsList : ArrayList<NewsItem>? = ArrayList())

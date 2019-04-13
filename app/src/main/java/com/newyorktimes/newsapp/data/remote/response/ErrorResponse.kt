@@ -8,10 +8,5 @@ import com.google.gson.annotations.SerializedName
  * Created on: 11/4/19
  * Modified on: 11/4/19
  *****/
-data class ErrorResponse (@SerializedName("errorCode") var errorCode:  String,
-                          @SerializedName("errorDescription") var errorDescription: String){
-    init {
-        errorCode = ""
-        errorDescription = ""
-    }
-}
+data class ErrorResponse (@SerializedName("errorCode") var errorCode:  String = "",
+                          @SerializedName("errorDescription") var errorDescription: String = "")

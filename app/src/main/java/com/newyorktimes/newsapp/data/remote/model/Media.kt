@@ -8,8 +8,4 @@ import com.google.gson.annotations.SerializedName
  * Created on: 4/13/19
  * Modified on: 4/13/19
  *****/
-data class Media(@SerializedName("media-metadata") var mediaMetadata: ArrayList<MediaMetadata>?) {
-    init {
-        mediaMetadata = ArrayList();
-    }
-}
+data class Media(@SerializedName("media-metadata") var mediaMetadata: ArrayList<MediaMetadata>? = ArrayList())
