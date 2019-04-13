@@ -1,6 +1,6 @@
 package com.newyorktimes.newsapp.view.fragment.news
 
-import android.databinding.ObservableField
+import android.arch.lifecycle.MutableLiveData
 import com.newyorktimes.newsapp.viewmodel.BaseViewModel
 
 /****
@@ -11,19 +11,19 @@ import com.newyorktimes.newsapp.viewmodel.BaseViewModel
  *****/
 class NewsItemViewModel() : BaseViewModel() {
 
-    var newsTitle =  ObservableField<String?>()
-    var newsAuthors = ObservableField<String?>()
-    var publishedDate = ObservableField<String?>()
-    var newsUrl = ObservableField<String?>()
-    var newsThumbnailUrl = ObservableField<String?>()
+    var newsTitle =  MutableLiveData<String?>()
+    var newsAuthors = MutableLiveData<String?>()
+    var publishedDate = MutableLiveData<String?>()
+    var newsUrl = MutableLiveData<String?>()
+    var newsThumbnailUrl = MutableLiveData<String?>()
 
 
     constructor(title: String?, authors: String?, date: String?, url: String?, urlImage: String?) : this() {
-        newsTitle.set(title)
-        newsAuthors.set(authors)
-        publishedDate.set(date)
-        newsUrl.set(url)
-        newsThumbnailUrl.set(urlImage)
+        newsTitle.value = title
+        newsAuthors.value = authors
+        publishedDate.value = date
+        newsUrl.value = url
+        newsThumbnailUrl.value = urlImage
     }
 
 }

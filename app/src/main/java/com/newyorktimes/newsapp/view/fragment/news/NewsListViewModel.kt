@@ -37,7 +37,7 @@ class NewsListViewModel @Inject constructor(private val newsRepository: NewsRepo
         itemBinding.set(BR.itemViewModel, R.layout.item_news)
         itemBinding.bindExtra(BR.itemClickListener, object : OnItemClickListener {
             override fun onItemClick(item: NewsItemViewModel) {
-                navigateToDetails.value = item.newsUrl.get()
+                navigateToDetails.value = item.newsUrl.value
             }
         })
     }
