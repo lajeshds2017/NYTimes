@@ -6,7 +6,6 @@ import org.junit.Assert.*
 /****
  * File Description
  * Author: Lajesh Dineshkumar
- * Company: Farabi Technologies
  * Created on: 4/13/19
  * Modified on: 4/13/19
  *****/

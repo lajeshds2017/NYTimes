@@ -6,7 +6,6 @@ import org.junit.Assert.*
 /****
  * Unit test for News Item
  * Author: Lajesh Dineshkumar
- * Company: Farabi Technologies
  * Created on: 4/13/19
  * Modified on: 4/13/19
  *****/
