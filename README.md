@@ -13,7 +13,7 @@ The application has been designed using **Android Architecture components** and 
 The whole application is built based on the MVVM architectural pattern.
 
 # Application Architecture
-![alt text](https://cdn-images-1.medium.com/max/1600/1*OqeNRtyjgWZzeUifrQT-NA.png)
+![alt text](http://images.zoftino.com/development/android-dev/library/model-view-viewmodel-pattern.png)
 
 The main advatage of using MVVM, there is no two way dependency between ViewModel and Model unlike MVP. Here the view can observe the datachanges in the viewmodel as we are using LiveData which is lifecycle aware. The viewmodel to view communication is achieved through observer pattern (basically observing the state changes of the data in the viewmodel).
 
